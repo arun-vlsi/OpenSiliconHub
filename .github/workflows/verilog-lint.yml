@@ -1,0 +1,37 @@
+name: Verilog Lint (Strict Mode)
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Verilator + Verible
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y verilator
+          sudo apt-get install -y verible-linter || true
+
+      - name: Run Verilator Strict Lint
+        run: |
+          echo "Running Verilator strict lint on all modules..."
+          verilator \
+            --lint-only \
+            -Wall \
+            -Wpedantic \
+            --error-limit 1 \
+            --bbox-sys \
+            SRC/*.v
+
+      - name: Run Verible Lint (optional)
+        run: |
+          echo "Running Verible linter..."
+          verible-verilog-lint SRC/*.v || true
