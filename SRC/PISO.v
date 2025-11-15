@@ -6,6 +6,7 @@ module PISO #(
   input wire reset, clk, enable,
   output reg out, done, busy
 );
+  localparam max_count= (SIZE>1) ? SIZE-1 : 1;
   reg [$clog2(SIZE)-1:0] bit_count;
   
   always @(posedge clk or posedge reset) begin
@@ -26,7 +27,7 @@ module PISO #(
 
       busy <= 1;
 
-      if (bit_count == SIZE-1) begin
+      if (bit_count == $clog2(SIZE)'(max_count)) begin
         bit_count <= 0;
         done <= 1;   
         busy <= 0;  
