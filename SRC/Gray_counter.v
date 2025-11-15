@@ -6,7 +6,7 @@ module Gray_counter #(
   input  wire en,      
   output reg [$clog2(SIZE)-1:0] gray
 );
-
+  localparam WIDTH= (SIZE>1) ? SIZE-1 : 1;
   reg [$clog2(SIZE)-1:0] binary;
 
   always @(posedge clk or posedge reset) begin
@@ -15,12 +15,12 @@ module Gray_counter #(
       gray   <= 0;
     end
     else if (en) begin
-      if (binary == SIZE-1)
+      if (binary == WIDTH)
         binary <= 0;
       else
         binary <= binary + 1;
 
-      gray <= (binary >> 1) ^ binary;
+      gray <= ((binary+1) >> 1) ^ (binary+1);
     end
   end
 endmodule
