@@ -1,4 +1,4 @@
-module sipo #(
+module SIPO #(
   parameter SIZE = 8,
   parameter SHIFT_DIR=0
 )(
