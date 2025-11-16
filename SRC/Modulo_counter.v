@@ -1,4 +1,4 @@
-module modulo_counter #(
+module Modulo_counter #(
   parameter DIVISOR = 10
 )(
   input wire clk,
