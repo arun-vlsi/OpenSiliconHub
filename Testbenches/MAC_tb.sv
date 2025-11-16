@@ -16,11 +16,11 @@ module MAC_tb;
 
   initial begin 
     A=5'd13; B=7'd23; c=12'd1012; #10;
-    $display ("(13*23)+1012= %d, DUT=%0d",(13*23)+1012,out)
+    $display ("(13*23)+1012= %d, DUT=%0d",(13*23)+1012,out);
     
     A=5'd15; B=7'd21; c=12'd598; #10;
-    $display ("(15*21)+598= %d, DUT=%0d",(15*21)+598,out)
+    $display ("(15*21)+598= %d, DUT=%0d",(15*21)+598,out);
 
-    $finish
+    $finish;
   end
 endmodule
