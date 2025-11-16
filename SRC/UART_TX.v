@@ -1,6 +1,6 @@
 module UART_TX#(
-  parameter clk_freq=50000000;
-  parameter baud_rate=9600;
+  parameter clk_freq=50000000,
+  parameter baud_rate=9600
 )(
   input wire clk,reset,tx_start;
   input wire [7:0] data;
