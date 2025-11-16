@@ -1,4 +1,4 @@
-module multiplier #(
+module Multiplier #(
   parameter A=4,
   parameter B=6
 )(
