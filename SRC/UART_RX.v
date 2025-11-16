@@ -50,7 +50,7 @@ module UART_RX(
         end
 
         START: begin
-          if (clk_count == 16'd(half_clks_per_bit)) begin
+          if (clk_count == 16'dhalf_clks_per_bit) begin
             if (rx_line == 0) begin
               clk_count <= 0;
               bit_index <= 0;
