@@ -17,7 +17,12 @@ jobs:
     - name: Install Icarus Verilog
       run: sudo apt-get update && sudo apt-get install -y iverilog
 
-    - name: Compile and run testbench
+    - name: Compile and run testbench Multiplier
       run: |
         iverilog -g2012 -o simv RTL/Multiplier.v Testbenches/Multiplier_tb.sv
+        vvp simv
+        
+    - name: Compile and run testbench MAC
+      run: |
+        iverilog -g2012 -o simv RTL/MAC.v Testbenches/MAC_tb.sv
         vvp simv
