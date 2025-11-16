@@ -1,12 +1,12 @@
 module SIPO #(
-  parameter SIZE = 8,
+  parameter WIDTH = 8,
   parameter SHIFT_DIR=0
 )(
   input wire in,clk,reset,enable,
-  output reg [SIZE-1:0] out,
+  output reg [WIDTH-1:0] out,
   output reg done,busy
 );
-  reg [$clog2(SIZE)-1:0] bit_count;
+  reg [$clog2(WIDTH)-1:0] bit_count;
   
   always @(posedge clk or posedge reset) begin
     if (reset) begin 
@@ -19,10 +19,10 @@ module SIPO #(
       if (SHIFT_DIR==0) begin
         out[bit_count]<=in;
       end else begin
-        out[SIZE-1-bit_count]<=in;
+        out[WIDTH-1-bit_count]<=in;
       end
       busy<=1;
-      if (bit_count == $clog2(SIZE)'(SIZE-1)) begin
+      if (bit_count == $clog2(WIDTH)'(WIDTH-1)) begin
         bit_count <= 0;
         done <= 1;  
         busy<=0;
