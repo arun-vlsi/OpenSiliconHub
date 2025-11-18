@@ -26,6 +26,11 @@ jobs:
       run: |
         iverilog -g2012 -o simv RTL/Barrel_shifter.v Testbenches/Barrel_shifter_tb.sv
         vvp simv
+
+    - name: Compile and run testbench ALU
+      run: |
+        iverilog -g2012 -o simv RTL/ALU.v Testbenches/ALU_tb.sv
+        vvp simv
         
     - name: Compile and run testbench MAC
       run: |
