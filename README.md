@@ -1,110 +1,55 @@
-# Verilog Modules Library [![Lint Status](https://github.com/MrAbhi19/Verilog_Library/actions/workflows/verilog-lint.yml/badge.svg)](https://github.com/MrAbhi19/Verilog_Library/actions/workflows/verilog-lint.yml)          [![Verilog Simulation](https://github.com/MrAbhi19/Verilog_Library/actions/workflows/verilog-test.yml/badge.svg)](https://github.com/MrAbhi19/Verilog_Library/actions/workflows/verilog-test.yml)
-
+# Verilog Modules Library  [![Lint Status](https://github.com/MrAbhi19/Verilog_Library/actions/workflows/verilog-lint.yml/badge.svg)](https://github.com/MrAbhi19/Verilog_Library/actions/workflows/verilog-lint.yml) [![Verilog Simulation](https://github.com/MrAbhi19/Verilog_Library/actions/workflows/verilog-test.yml/badge.svg)](https://github.com/MrAbhi19/Verilog_Library/actions/workflows/verilog-test.yml)  
 ![License](https://img.shields.io/github/license/MrAbhi19/Verilog_Library)
 
-A growing collection of reusable, parameterized Verilog modules designed for learning, rapid prototyping, and integration into larger digital design projects. The goal of this repository is to maintain a clean, modular, and extensible library of hardware building blocks—each paired with testbenches, simulation waveforms, and clear documentation.
+A growing collection of **reusable, parameterized Verilog modules** for learning, prototyping, and integrating into larger digital design projects.  
+Each module includes documentation, a testbench, simulation waveforms (when applicable), and clean RTL aimed at readability and reusability.
 
-This project is open for contributions in all forms: modules, testbenches, waveform captures, documentation, and ideas for upcoming designs.
-
----
-## 🛡️ Linting Policy
-
-This repository enforces **strict linting** using Verilator in GitHub Actions:
-
-- **Warnings are treated as errors** — even minor issues like unused signals or width mismatches will fail the workflow.
-- **Style and synthesis safety enforced** — checks include unused signals, width mismatches, implicit nets, unreachable code, and clock/reset handling.
-
-This strict setup guarantees that all HDL code here is **clean, reproducible, and synthesis‑safe**.  
-**✅ Every module in this repository is lint‑clean under Verilator strict mode.**
+This project welcomes contributions of all kinds—new modules, tests, improvements, documentation, or design suggestions.
 
 ---
+
 ## ✨ Features
 
-- **Reusable modules** — Clean, synthesizable Verilog with parameterization wherever applicable.
-- **Structured directories** — Each module has its own folder containing:
-  - Source files (`.v`)
-  - Testbench
-  - Waveform outputs (`.vcd` / screenshots)
-  - Notes or design explanations
-- **Beginner-friendly** — Easy for students, hobbyists, and engineers.
-- **Open for collaboration** — Ideas and discussions welcome in the GitHub Discussions section.
+- **Reusable RTL** — Clean, synthesizable, parameterized modules.  
+- **Full workflow support** — Testbenches, simulation scripts, and CI-based linting/simulation.  
+- **Organized structure:**
+  - `RTL/` — Verilog source (`.v`)  
+  - `Testbenchs/` — SystemVerilog testbenches (`.sv`)  
+  - `docs/` — Module documentation and design notes (`.md`)
 
 ---
 
-## 🧩 Available Modules
+## 📦 Available Modules
 
-This list will grow as new modules are added.  
-Examples:
-## 🧩 Available Modules
-
-
-| Module                | Description / Notes                                      |
-|-----------------------|----------------------------------------------------------|
-| **SPI (Master/Slave)**| Serial Peripheral Interface communication modules        |
-| **UART (TX/RX)**      | Universal Asynchronous Receiver/Transmitter (serial comms)|
-| **ALU**               | Arithmetic Logic Unit for basic operations               |
-| **Bidirectional Counter** | Counts up and down with control signals             |
-| **Pre-Scaler**        | Frequency divider for clock management                   |
-| **Shift Registers**   | SISO, SIPO, PISO, PIPO variants                          |
-| **Gray-Coded Counter**| Counter with Gray code output                            |
-| **Priority Encoder**  | Encodes highest-priority active input                    |
+Visit the **index page** for a complete list of modules, testbenches, docs, and examples:  
+👉 [INDEX](./Index.md)
 
 ---
 
-## 🚀 Contributions Welcome
+## 🤝 Contribution Guidelines
 
-Contributions are open in multiple categories:
+Read the contribution guide here:  
+👉 [Contribution Guidelines](./Contribution.md)
 
-### 1. Verilog Modules  
-Submit reusable, parameterized modules with a short description.
-
-### 2. Testbenches  
-Add or improve testbenches for existing modules.
-
-### 3. Waveforms  
-Upload `.vcd` files or screenshots using tools like GTKWave.
-
-### 4. Optimizations & Refactoring  
-Enhance clarity, parameterization, or performance of current modules.
-
-### 5. Documentation  
-Improve descriptions, add diagrams, or explain design logic.
-
-### 6. Ideas and Proposals  
-Use the **Discussions** tab to propose:
-- New modules  
-- Improvements  
-- Coding standards  
-- Simulation methodology  
+If you run into any issues or want help contributing, feel free to open a Discussion:  
+👉 [Discussions](../../discussions)
 
 ---
 
-## 📝 Contribution Guidelines
+## 🧰 Tools Used
 
-1. Fork the repository.  
-2. Create a new branch for your module or fix.  
-3. Add your module in a new folder following the structure above.  
-4. Include:
-   - Module file  
-   - Testbench  
-   - Waveform (if possible)  
-   - Short module notes  
-5. Submit a pull request with a clear explanation.  
-
-For proposals or questions, start a GitHub Discussion before a PR.
-
----
-
-## 🧪 Recommended Tools
-
+### Software
 - **Icarus Verilog** — Simulation  
-- **Verilator** — Linting and cycle-accurate simulation  
+- **Verilator** — Linting & static checks  
 - **GTKWave** — Waveform viewing  
-- **EDA Playground** — Online quick testing  
-- **VS Code + Verilog HDL extensions** — Coding environment  
+- **EDA Playground** — Quick online testing
+
+### Hardware Targets for Benchmarks  
+- **Lattice iCE40 UP5K**  
+- **Xilinx Artix-7 XC7A35T**
 
 ---
 
 ## 📬 Contact / Discussions
 
-For module requests, ideas, improvements, or collaboration, use the **GitHub Discussions** section of this repository.
+For module requests, ideas, improvements, or collaboration, use the **GitHub Discussions** section of the repository.
