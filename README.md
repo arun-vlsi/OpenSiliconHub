@@ -19,10 +19,12 @@ This project welcomes contributions of all kinds—new modules, tests, improveme
 
 ---
 
-## 📦 Available Modules
+## 📦 Available Modules and getting started
 
 Visit the **index page** for a complete list of modules, testbenches, docs, and examples:  
-👉 [INDEX](#verilog-modules-index)
+👉 [INDEX](#verilog-modules-index)<br>
+How to use these modules in your projects?<br>
+👉 [How to Use](#how-to-use)
 
 ---
 
@@ -80,3 +82,44 @@ This index provides quick access to all modules in the repository along with the
 | **UART TX**        | [UART_TX.v](./RTL/UART_TX.v) | Pending                            | Pending          | [UART_TX.md](./Docs/UART_TX.md) | Pending          |
 
 ---
+
+
+# How to Use
+
+Let’s consider a boolean expression: `((A + B) * C) * D`  
+To implement this expression, we need two modules — **[MAC](./RTL/MAC.v)** and **[Multiplier](./RTL/Multiplier)**.
+
+**Step 1:** Download `MAC.v` and `Multiplier.v` and add them to your work environment.  
+**Step 2:** Instantiate them as shown below:
+
+```Verilog
+module top (
+  input  [1:0] A_in, B_in,
+  input  [3:0] C_in, D_in,
+  output [7:0] ex_out
+);
+
+  wire connector;
+
+  // Multiply-Accumulate: (A + B) * C
+  MAC #(
+    .WIDTH_A(2),  
+    .WIDTH_B(2)  
+  ) u_mac (
+    .A(A_in),     
+    .B(B_in),     
+    .C(C_in),      
+    .Y(connector)    
+  );
+
+  // Final multiplication: result * D
+  Multiplier #(
+    .WIDTH_A(4), 
+    .WIDTH_B(4)    
+  ) u_mult (
+    .in1(connector),   
+    .in2(D_in), 
+    .out(ex_out)  
+  );
+
+endmodule
