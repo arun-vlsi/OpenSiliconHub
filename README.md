@@ -1,25 +1,58 @@
-# Verilog Modules Library 
-[![Verilog Lint (Strict Mode)](https://github.com/MrAbhi19/Verilog_Library/actions/workflows/linting.yml/badge.svg)](https://github.com/MrAbhi19/Verilog_Library/actions/workflows/linting.yml) [![Verilog Simulation](https://github.com/MrAbhi19/Verilog_Library/actions/workflows/verilog-test.yml/badge.svg)](https://github.com/MrAbhi19/Verilog_Library/actions/workflows/verilog-test.yml) 
+<h1 align="center">OpenSiliconHub</h1>
 
 
-A growing collection of **reusable, parameterized Verilog modules** for learning, prototyping, and integrating into larger digital design projects.  
-Each module includes documentation, a testbench, simulation waveforms (when applicable), and clean RTL aimed at readability and reusability.
+<p align="center">
+  <!-- Verilog Lint Badge -->
+  <a href="https://github.com/MrAbhi19/Verilog_Library/actions/workflows/linting.yml">
+    <img src="https://github.com/MrAbhi19/Verilog_Library/actions/workflows/linting.yml/badge.svg" alt="Verilog Lint (Strict Mode)">
+  </a>
+  <!-- Verilog Simulation Badge -->
+  <a href="https://github.com/MrAbhi19/Verilog_Library/actions/workflows/verilog-test.yml">
+    <img src="https://github.com/MrAbhi19/Verilog_Library/actions/workflows/verilog-test.yml/badge.svg" alt="Verilog Simulation">
+  </a>
+</p>
 
-This project welcomes contributions of all kinds—new modules, tests, improvements, documentation, or design suggestions.
+
+<p align="center"><i>Reusable Verilog cores focused on cryptography, DSP, and neural acceleration</i></p>
+
+
+A growing collection of reusable, parameterized hardware cores for learning, prototyping, and integration into advanced digital design projects. Our primary focus is on cryptographic cores, DSP cores, neural accelerators, and other high‑performance building blocks for modern systems.
+
+
+Whether you’re a beginner exploring Verilog or an experienced designer, your contributions are welcome!
 
 ---
 
-## ✨ Features
+## ⚡ Core Examples
 
-- **Reusable RTL** — Clean, synthesizable, parameterized modules.  
-- **Full workflow support** — Testbenches, simulation scripts, and CI-based linting/simulation.  
+We focus on building **powerful hardware cores** that can serve as reusable building blocks.  
+Here’s a snapshot of what we have right now and what we might consider building later:
+
+### 🔐 Cryptographic Cores
+- **ChaCha20** stream cipher   [➡️](./SRC/Chacha20/)
+- **AES** block cipher   [➡️](./SRC/AES/)
+- **PRNGs** — Multiple modules including PCG64-DXSM, SplitMix64, philox-4*32-10, and 5 other PRNG variants [➡️](./SRC/)
+- SHA‑1 / SHA‑256 hash cores
+- RSA / ECC accelerators
+- Grain‑128 / Grain‑128a
 
 ---
 
-## Getting started
+### 🎵 DSP Cores
+**What we have right now:**
+- FIR, IIR filter modules
+- FFT (Fast Fourier Transform) prototype
+- convolution engines for signal/image processing
 
-How to use these modules in your projects?<br>
-👉 [How to Use](#how-to-use)
+---
+
+### 🧠 Neural Acceleration
+**What we have right now:**
+- Basic matrix multiplication core
+- Convolutional layer accelerators
+- Activation function modules (ReLU, Sigmoid, Tanh)
+- RNN/LSTM building blocks
+- Quantized neural network primitives
 
 ---
 
@@ -36,10 +69,11 @@ If you run into any issues or want help contributing, feel free to open a Discus
 ## 🧰 Tools Used
 
 ### Software
-- **Icarus Verilog** — Simulation  
-- **Verilator** — Linting & static checks  
-- **GTKWave** — Waveform viewing  
-- **EDA Playground** — Quick online testing
+- [Icarus Verilog](http://iverilog.icarus.com/) — Simulation  
+- [Verilator](https://www.veripool.org/verilator/) — Linting & static checks  
+- [GTKWave](http://gtkwave.sourceforge.net/) — Waveform viewing  
+- [EDA Playground](https://www.edaplayground.com/) — Quick online testing
+
 
 ### Hardware Targets for Benchmarks  
 - **Lattice iCE40 UP5K**  
@@ -53,42 +87,6 @@ For module requests, ideas, improvements, or collaboration, use the **GitHub Dis
 
 ---
 
-# How to Use
-
-Let’s consider a boolean expression: `((A + B) * C) * D`  
-To implement this expression, we need two modules — **[MAC](./RTL/MAC.v)** and **[Multiplier](./RTL/Multiplier)**.
-
-**Step 1:** Download `MAC.v` and `Multiplier.v` and add them to your work environment.  
-**Step 2:** Instantiate them as shown below:
-
-```Verilog
-module top (
-  input  [1:0] A_in, B_in,
-  input  [3:0] C_in, D_in,
-  output [7:0] ex_out
-);
-
-  wire connector;
-
-  // Multiply-Accumulate: (A + B) * C
-  MAC #(
-    .WIDTH_A(2),  
-    .WIDTH_B(2)  
-  ) u_mac (
-    .A(A_in),     
-    .B(B_in),     
-    .C(C_in),      
-    .Y(connector)    
-  );
-
-  // Final multiplication: result * D
-  Multiplier #(
-    .WIDTH_A(4), 
-    .WIDTH_B(4)    
-  ) u_mult (
-    .in1(connector),   
-    .in2(D_in), 
-    .out(ex_out)  
-  );
-
-endmodule
+## 📜 License
+This project is licensed under the MIT License — see [LICENSE](./LICENSE) for details.
+---
