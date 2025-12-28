@@ -30,6 +30,28 @@ Whether you’re a beginner exploring Verilog or an experienced designer, your c
 
 ---
 
+## Getting Started
+
+This repository contains multiple independent, reusable Verilog hardware cores.
+Each core can be explored, simulated, and integrated individually using standard
+HDL tools.
+
+This section provides general guidance to help new users get started quickly.
+Core-specific instructions may vary and are typically documented within the
+respective core directories.
+
+### Prerequisites
+- A Verilog simulator (e.g., Icarus Verilog, Verilator, or a compatible simulator)
+- GTKWave or a compatible waveform viewer (optional, for signal inspection)
+
+### General Simulation Flow
+1. Navigate to the directory of the desired hardware core.
+2. Compile the Verilog source files along with the corresponding testbench.
+3. Run the simulation using your chosen simulator.
+4. Inspect simulation logs or waveforms to verify correct functionality.
+
+---
+
 ## Core Examples
 
 We focus on building **powerful hardware cores** that can serve as reusable building blocks.  
@@ -49,7 +71,7 @@ Here’s a snapshot of what we have right now and what we might consider buildin
 **What we have right now:**
 - FIR, IIR filter modules
 - FFT (Fast Fourier Transform) prototype
-- convolution engines for signal/image processing
+- Convolution engines for signal/image processing
 
 ---
 
@@ -75,7 +97,7 @@ If you run into any issues or want help contributing, feel free to open a Discus
 
 ##  Tools Used
 
-### Software
+### Software (Commonly Used)
 - [Icarus Verilog](http://iverilog.icarus.com/) — Simulation  
 - [Verilator](https://www.veripool.org/verilator/) — Linting & static checks  
 - [GTKWave](http://gtkwave.sourceforge.net/) — Waveform viewing  
@@ -86,7 +108,6 @@ If you run into any issues or want help contributing, feel free to open a Discus
 - **Lattice iCE40 UP5K**  
 - **Xilinx Artix-7 XC7A35T**
 
----
 ---
 
 ##  Citation
