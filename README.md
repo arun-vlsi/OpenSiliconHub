@@ -30,6 +30,23 @@ Whether you’re a beginner exploring Verilog or an experienced designer, your c
 
 ---
 
+## Getting Started
+
+This repository contains multiple independent Verilog hardware cores. Each core can be explored, simulated, and reused individually using
+standard HDL tools.
+
+### Prerequisites
+- Verilog simulator (Icarus Verilog / Verilator / Questa)
+- GTKWave (for waveform visualization)
+
+### General Simulation Flow
+1. Navigate to the desired core directory.
+2. Compile the Verilog design along with its testbench.
+3. Run the simulation using your preferred simulator.
+4. Inspect waveforms or logs to verify correct behavior.
+
+> Note: Exact file names and simulation steps may vary between cores.
+
 ## Core Examples
 
 We focus on building **powerful hardware cores** that can serve as reusable building blocks.  
